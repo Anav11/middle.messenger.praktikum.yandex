@@ -1,0 +1,12 @@
+extends ../../template
+include ../../components/input/input
+include ../../components/button/button
+
+block content
+    img.background-logo(src="../../../img/logo.svg" alt="logo")
+    form.auth-form
+        h2.auth-form__label Вход
+        +formInput("Логин", "Логин", "text", "login")(required)(class="input--border")
+        +formInput("Пароль", "******", "password", "password")(required)(class="input--border")
+        +button("Авторизоваться")(type="submit")(class="auth-form__button")
+        a.auth-form__no-account(href="/pages/registration/registration.pug") Нет аккаунта?

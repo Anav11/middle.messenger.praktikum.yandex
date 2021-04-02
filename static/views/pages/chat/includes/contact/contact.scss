@@ -1,0 +1,82 @@
+@import "static/styles/variables";
+
+.contact {
+  position: relative;
+  display: grid;
+  grid-template:
+    "avatar name name name date date" auto
+    "avatar message message message message message-count" auto / 50px auto auto;
+  border-top: 1px solid;
+  padding: 10px 0;
+  margin: 0 10px;
+  cursor: default;
+
+  &--active {
+    background: $gray;
+    margin: 0;
+    padding: 10px;
+  }
+
+  &__avatar {
+    grid-area: avatar;
+
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+  }
+
+  &__name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    grid-area: name;
+    font-size: 15px;
+    padding-left: 10px;
+    font-weight: 500;
+  }
+
+  &__message {
+    grid-area: message;
+    align-self: start;
+    overflow: hidden;
+    height: 33px;
+    font-size: 13px;
+    color: $disabled;
+    padding: 0 10px 0 15px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__sent-by-you {
+    font-weight: 600;
+    color: $white;
+  }
+
+  &__date {
+    grid-area: date;
+    white-space: nowrap;
+    font-size: 13px;
+    color: $disabled;
+    text-align: end;
+  }
+
+  &__message-count {
+    grid-area: message-count;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    height: 10px;
+    min-width: 10px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 4px;
+    margin: 2px;
+    background: $orange;
+  }
+}

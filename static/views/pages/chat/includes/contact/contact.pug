@@ -1,0 +1,13 @@
+mixin contact(name, message, avatar, date, messageCount, sentByYou, active)
+    li.contact(class=`${active ? 'contact--active' : ''}`)
+        img.contact__avatar(src=avatar alt="avatar")
+        div.contact__name #{name}
+        div.contact__message
+            if sentByYou
+                span.contact__sent-by-you Вы:&nbsp;
+                span #{message}
+            else
+                span #{message}
+        div.contact__date #{date}
+        if messageCount
+            div.contact__message-count #{messageCount}
