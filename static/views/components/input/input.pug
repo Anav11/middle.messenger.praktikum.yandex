@@ -1,0 +1,4 @@
+mixin formInput(label, placeholder, type, name, error)
+    div(class=`form-input ${error ? 'form-input__error' : ''}`)&attributes(attributes)
+        label #{label}
+        input.input(type=type placeholder=placeholder name=name required)

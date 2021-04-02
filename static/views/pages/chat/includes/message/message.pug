@@ -1,0 +1,5 @@
+mixin message(text, time, status, sentBy)
+    article.message(class=`${!sentBy ? 'message__sent-by-you' : ''}`)
+        div.message__text #{text}
+        div.message__time #{time}
+        div.message__status #{status}

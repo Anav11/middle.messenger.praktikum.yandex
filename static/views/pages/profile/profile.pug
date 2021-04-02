@@ -1,0 +1,34 @@
+extends ../../template
+
+block variable
+    -const accountInfo = {email: 'myemail@mail.ru', login: "andreandr",  name: 'Билли', lastname: 'Махоуни', phone: '+79222212211', avatar: 'https://images.unsplash.com/photo-1616925148172-0062686b1fa3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=752&q=80'} || {}
+
+block content
+    main
+        nav.get-back-panel
+            a.get-back-panel__btn.btn.btn--text-white.btn--background-orange.btn--style-round.fas.fa-arrow-left(href='/pages/chat/chat.pug')
+        form.profile-settings
+            div.profile-settings__user
+                input(type="file" accept="image/*" id="file-upload")
+                label.user__avatar-label(for="file-upload")
+                    img.user__avatar(src=accountInfo.avatar alt='avatar')
+                    div.blackout Поменять аватар
+                h2.user__name #{accountInfo.name} #{accountInfo.lastname}
+            div.profile-settings__fill.profile-settings__email
+                span Почта
+                input.input(value=accountInfo.email type="email")(required)(class="input--size-s input--text-white input--text-right-align")
+            div.profile-settings__fill.profile-settings__login
+                span Логин
+                span #{accountInfo.login}
+            div.profile-settings__fill.profile-settings__name
+                span Имя
+                input.input(value=accountInfo.name)(required)(class="input--size-s input--text-white input--text-right-align")
+            div.profile-settings__fill.profile-settings__lastname
+                span Фамилия
+                input.input(value=accountInfo.lastname)(required)(class="input--size-s input--text-white input--text-right-align")
+            div.profile-settings__fill.profile-settings__phone
+                span Телефон
+                span #{accountInfo.phone}
+            div.profile-settings__fill
+                a.profile-settings__change-number(href="/pages/profile/changePass/changePass.pug") Изменить пароль
+            a.profile-settings__exit(href='/pages/authorization/authorization.pug') Выход

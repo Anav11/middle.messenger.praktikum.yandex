@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+@import "../views/components/input/input";
+@import "../views/components/button/button";
+
+body {
+  margin: 0px;
+  font-family: Montserrat;
+  background: $darkGray;
+  color: $white;
+
+  a {
+    color: $ice;
+  }
+}
+
+.background-logo {
+  position: fixed;
+  z-index: -1000;
+  width: 100vw;
+  height: 99vh;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.input {
+  border: none;
+  outline: none;
+  background: #ffffff00;
+  height: 40px;
+  color: $ice;
+  font-size: 15px;
+  font-weight: 600;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  &--border {
+    border-bottom: 1px solid $white;
+  }
+
+  &--size {
+    &-s {
+      height: 15px;
+    }
+  }
+
+  &--text {
+    &-white {
+      color: $white;
+    }
+
+    &-right-align {
+      text-align: right;
+    }
+  }
+}
+
+.btn {
+  border: none;
+  outline: none;
+  text-decoration: none;
+
+  &--text {
+    &-white {
+      color: $white;
+    }
+
+    &-grey {
+      color: $disabled;
+    }
+  }
+
+  &--background {
+    &-without {
+      background: transparent;
+    }
+
+    &-orange {
+      background: $orange;
+    }
+  }
+
+  &--style {
+    &-round {
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+    }
+  }
+
+  &--size {
+    &-s {
+      font-size: 10px;
+    }
+
+    &-m {
+      font-size: 15px;
+    }
+
+    &-l {
+      font-size: 20px;
+    }
+
+    &-xl {
+      font-size: 30px;
+    }
+  }
+}

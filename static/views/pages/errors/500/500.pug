@@ -1,0 +1,10 @@
+extends ../../../template
+
+block content
+    img.background-logo(src="../../../../img/logo.svg" alt="logo")
+    h1.error__code 500
+    h2.error__message
+        span Упс...
+        br
+        span Что-то сломалось
+    a.error__link(href='/pages/chat/chat.pug') Назад к чатам

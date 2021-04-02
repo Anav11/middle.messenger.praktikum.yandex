@@ -1,0 +1,16 @@
+extends ../../template
+include ../../components/input/input
+include ../../components/button/button
+
+block content
+    img.background-logo(src="../../../img/logo.svg" alt="logo")
+    form.registration-form
+        h2.registration-form__label Регистрация
+        +formInput("Почта", "user@mail.ru", "email", "email")(required)(class="input--border")
+        +formInput("Логин", "-----", "text", "login")(required)(pattern=".{3,}")(class="input--border")
+        +formInput("Имя", "-----", "text", "name")(required)(minlength=2)(class="input--border")
+        +formInput("Фамилия", "-----", "text", "lastname")(required)(minlength=2)(class="input--border")
+        +formInput("Телефон", "+7(800)555-35-35", "number", "number")(required)(minlength=11)(maxlength=11)(class="input--border")
+        +formInput("Пароль", "********", "password", "password")(required)(minlength=8)(class="input--border")
+        +button("Зарегистрироваться")(type="submit")(class="auth-form__button")
+        a.registration-form__no-account(href="/pages/authorization/authorization.pug") Войти

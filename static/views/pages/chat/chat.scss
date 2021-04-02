@@ -1,0 +1,140 @@
+@import "../../../styles/variables";
+
+.chat {
+  background: $gray;
+  display: grid;
+  grid-template: "chat-list chat" 1fr / 25% 75%;
+}
+
+.chat-list {
+  border-right: 1px solid;
+  height: 100vh;
+  overflow: auto;
+  background: $darkGray;
+  grid-area: chat-list;
+}
+
+.active-chat {
+  grid-area: chat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0 20px;
+    border-bottom: 1px solid;
+    height: 7%;
+  }
+
+  &__messages {
+    grid-area: messages;
+    height: 86%;
+    overflow: auto;
+  }
+
+  &__contact-menu-btn {
+    position: absolute;
+    right: 30px;
+  }
+
+  &__no-chat-selected {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $disabled;
+  }
+
+  &__control-panel {
+    display: flex;
+    align-items: baseline;
+    border-top: 1px solid;
+    margin: 0 20px;
+    height: 7%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.control-panel {
+  &__message-input {
+    border: none;
+    outline: none;
+    width: 90%;
+    margin: 1%;
+    padding: 10px;
+    border-radius: 20px;
+    background: $white;
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+}
+
+.messages {
+  &__date {
+    color: $disabled;
+    text-align: center;
+    padding: 5px;
+  }
+
+  &__by-date-block {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.profile-link {
+  position: relative;
+  left: 3%;
+  top: 1%;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+
+  &__chevron {
+    position: relative;
+    left: 7px;
+    top: 1px;
+  }
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 90%;
+  margin: 5% 3% 1%;
+  padding: 2%;
+  border-radius: 4px;
+  background: $white;
+
+  &::placeholder {
+    text-align: center;
+    color: $gray;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .chat {
+    grid-template: "chat-list chat" 1fr / 50% 50%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .active-chat {
+    &__header {
+      height: 10%;
+    }
+
+    &__messages {
+      height: 80%;
+    }
+
+    &__control-panel {
+      height: 10%;
+    }
+  }
+}

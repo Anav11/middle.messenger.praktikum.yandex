@@ -1,0 +1,24 @@
+extends ../../../template
+include ../../../components/input/input
+
+block variable
+  -const accountInfo = {email: 'myemail@mail.ru', login: 'andreandr',  name: 'Билли', lastname: 'Махоуни', phone: '+79222212211', avatar: 'https://images.unsplash.com/photo-1616925148172-0062686b1fa3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=752&q=80'} || {}
+
+block content
+    main
+        nav.get-back-panel
+            a.get-back-panel__btn.btn.btn--text-white.btn--background-orange.btn--style-round.fas.fa-arrow-left(href='/pages/profile/profile.pug')
+        div.profile-settings
+            div.profile-settings__user
+                img.user__avatar(src=accountInfo.avatar alt="avatar")
+            form.change-password
+                div.profile-settings__fill.profile-settings__email
+                    span Старый пароль
+                    +formInput("", "******", "password", "oldPassword")(required)(class="input--size-s input--text-white input--text-right-align")
+                div.profile-settings__fill.profile-settings__email
+                    span Новый пароль
+                    +formInput("", "******", "password", "newPassword")(required)(class="input--size-s input--text-right-align")
+                div.profile-settings__fill.profile-settings__email
+                    span Повторите новый пароль
+                    +formInput("", "******", "password", "repeatNewPassword")(required)(class="input--size-s input--text-right-align")
+                button.profile-settings__save-btn.btn.btn--text-white.btn--size-m.btn--background-orange.btn--style-classic.btn--style-long Сохранить

@@ -1,0 +1,42 @@
+extends ../../template
+include ../../components/input/input
+include includes/contact/contact
+include includes/message/message
+
+block variable
+    - const contacts = [{id: 1, name: "Андрей", message: "Йоу! чувак, здарова! Как сам?", avatar: 'https://images.unsplash.com/photo-1616990417764-8d9fe56f7194?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80', date: '15:40', messageCount: 1}, {id: 2, name: "Настя", message: "Я нашла, тот мем! Ржу не могу! :)))", avatar: 'https://images.unsplash.com/photo-1506980595904-70325b7fdd90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=654&q=80', date: 'Пн', messageCount: 10}, {id: 3, name: "Абоба", sentByYou: true, message: "Пока не могу, дружище", avatar: 'https://images.unsplash.com/photo-1616702577614-70b4c988ddd4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80', date: '2 марта', messageCount: 0}, {id: 4, name: "Виталян Оурэлл", message: "Чего не отвечаешь? Хочешь и молчишь? ХОЧЕШЬ И МОЛЧИШЬ???   ", avatar: 'https://images.unsplash.com/photo-1536169417245-695100823100?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80', date: '30 Января 2019', messageCount: '1894'}]
+    - const activeContact = {id: 3, name: "Абоба", sentByYou: true, message: "Пока не могу, дружище", avatar: 'https://images.unsplash.com/photo-1616702577614-70b4c988ddd4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80', date: '2 марта 2020', messageCount: 0} || {}
+    - const messages = [{date: '2 марта', messages: [{text: 'Привет, нужна помощь биби бубу, туда сюда сделать по братски.', time: '15:30', status: '', sentBy: 3}, {text: 'Пока не могу, дружище', time: '15:35', status: '', sentBy: 0},{text: 'Привет, нужна помощь биби бубу, туда сюда сделать по братски.', time: '15:30', status: '', sentBy: 3}, {text: 'Пока не могу, дружище', time: '15:35', status: '', sentBy: 0},{text: 'Привет, нужна помощь биби бубу, туда сюда сделать по братски.', time: '15:30', status: '', sentBy: 3}, {text: 'Пока не могу, дружище', time: '15:35', status: '', sentBy: 0},{text: 'Привет, нужна помощь биби бубу, туда сюда сделать по братски.', time: '15:30', status: '', sentBy: 3}, {text: 'Пока не могу, дружище', time: '15:35', status: '', sentBy: 0}, {text: 'Привет, нужна помощь биби бубу, туда сюда сделать по братски.', time: '15:30', status: '', sentBy: 3}, {text: 'Пока не могу, дружище', time: '15:35', status: '', sentBy: 0}]}];
+
+block content
+    div.chat
+        nav.chat-list
+            a.profile-link(href="/pages/profile/profile.pug") Профиль
+                span.profile-link__chevron.fas.fa-chevron-right
+            input.search-input(type="text" placeholder="Поиск")
+            ul
+                each contact in contacts
+                    +contact(contact.name, contact.message, contact.avatar, contact.date, contact.messageCount, contact.sentByYou, active=(contact.id === activeContact.id))
+
+        main.active-chat
+            // !TODO isEmpty
+            if (Object.keys(activeContact).length !== 0)
+                header.active-chat__header
+                    img.contact__avatar(src=activeContact.avatar alt='avatar')
+                    div.contact__name #{activeContact.name}
+                    div.active-chat__contact-menu-btn.fas.fa-ellipsis-v
+
+                div.active-chat__messages
+                    each messagesOfDate in messages
+                        section.messages__by-date-block
+                            div.messages__date #{messagesOfDate.date}
+                            each message in messagesOfDate.messages
+                                +message(message.text, message.time, message.status, message.sentBy)
+
+                div.active-chat__control-panel
+                    button.btn.btn--size-l.btn--background-without.btn--text-grey.control-panel__attach-btn.fas.fa-paperclip
+                    input.control-panel__message-input(type="text" placeholder="Сообщение")
+                    button.btn.btn--text-white.btn--background-orange.btn--style-round.fas.fa-arrow-right
+            else
+                span.active-chat__no-chat-selected Выберите чат чтобы отправить сообщение
+

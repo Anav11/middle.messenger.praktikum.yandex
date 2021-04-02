@@ -1,0 +1,12 @@
+@import "static/styles/variables";
+
+.button {
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  background: $orange;
+  border-radius: 8px;
+  color: $white;
+  font-size: 15px;
+  font-weight: 600;
+}
