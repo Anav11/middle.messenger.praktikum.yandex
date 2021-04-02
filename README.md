@@ -19,4 +19,4 @@ HeyChat новый мессенджер направленный на общен
 #### [Макет HeyChat в figma](https://www.figma.com/file/n21UttpbIr5pccS6l2DQKi/HeyChat?node-id=0%3A1)
 
 ##### Pull request:
-*Ссылка ну пулл*
+pull request: https://github.com/Anav11/middle.messenger.praktikum.yandex/pull/1
