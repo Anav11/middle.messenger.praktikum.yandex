@@ -6,7 +6,7 @@ https://upbeat-wilson-37b91b.netlify.app/
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fe1a7367-a27f-4dfb-8e24-7a8c92db34f7/deploy-status)](https://app.netlify.com/sites/upbeat-wilson-37b91b/deploys)
 
 ## Команды
-- `npm install` — установка стабильной версиию
+- `npm install` — установка стабильной версии
 - `npm run dev` — запуск в режиме разработки,
 - `npm run start` — сборка и запуск стабильной версии.
 
